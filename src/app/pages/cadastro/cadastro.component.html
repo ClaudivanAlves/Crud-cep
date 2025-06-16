@@ -1,1 +1,79 @@
-<p>cadastro works!</p>
+<h1>Cadastro de Usuário</h1>
+<form [formGroup]="form" (ngSubmit)="salvar()" class="form-container two-columns">
+  <div class="form-row">
+    <label for="nome">Nome completo</label>
+    <input id="nome" type="text" formControlName="nome" placeholder="Nome completo" />
+    <small *ngIf="form.get('nome')?.touched && form.get('nome')?.invalid" class="error">
+      Nome é obrigatório.
+    </small>
+  </div>
+  
+  <div class="form-row">
+    <label for="cep">CEP</label>
+    <input id="cep" type="text" formControlName="cep" mask="00000-000" placeholder="00000-000" (blur)="buscarCep()" />
+    <small *ngIf="form.get('cep')?.touched && form.get('cep')?.invalid" class="error">
+      CEP é obrigatório e deve ter 8 dígitos.
+    </small>
+  </div>
+
+  <div class="form-row">
+    <label for="email">Email</label>
+    <input id="email" type="email" formControlName="email" placeholder="Email" />
+    <small *ngIf="form.get('email')?.touched && form.get('email')?.errors?.['required']" class="error">
+      Email é obrigatório.
+    </small>
+    <small *ngIf="form.get('email')?.touched && form.get('email')?.errors?.['email']" class="error">
+      Email inválido.
+    </small>
+  </div>
+  
+  <div class="form-row">
+    <label for="rua">Rua</label>
+    <input id="rua" type="text" formControlName="rua" placeholder="Rua" />
+    <small *ngIf="form.get('rua')?.touched && form.get('rua')?.invalid" class="error">
+      Rua é obrigatória.
+    </small>
+  </div>
+
+  <div class="form-row">
+    <label for="cpf">CPF</label>
+    <input id="cpf" type="text" formControlName="cpf" mask="000.000.000-00" placeholder="000.000.000-00" />
+    <small *ngIf="form.get('cpf')?.touched && form.get('cpf')?.invalid" class="error">
+      CPF é obrigatório.
+    </small>
+  </div>
+
+  <div class="form-row">
+    <label for="bairro">Bairro</label>
+    <input id="bairro" type="text" formControlName="bairro" placeholder="Bairro" />
+    <small *ngIf="form.get('bairro')?.touched && form.get('bairro')?.invalid" class="error">
+      Bairro é obrigatório.
+    </small>
+  </div>
+
+  <div class="form-row">
+    <label for="telefone">Telefone</label>
+    <input id="telefone" type="text" formControlName="telefone" placeholder="Telefone" mask="(00) 0 0000-0000" />
+    <small *ngIf="form.get('telefone')?.touched && form.get('telefone')?.invalid" class="error">
+      Telefone é obrigatório.
+    </small>
+  </div>
+
+  <div class="form-row">
+    <label for="cidade">Cidade</label>
+    <input id="cidade" type="text" formControlName="cidade" placeholder="Cidade" />
+    <small *ngIf="form.get('cidade')?.touched && form.get('cidade')?.invalid" class="error">
+      Cidade é obrigatória.
+    </small>
+  </div>
+
+  <div class="form-row">
+    <label for="estado">Estado</label>
+    <input id="estado" type="text" formControlName="estado" placeholder="Estado" />
+    <small *ngIf="form.get('estado')?.touched && form.get('estado')?.invalid" class="error">
+      Estado é obrigatório.
+    </small>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Salvar</button>
+</form>

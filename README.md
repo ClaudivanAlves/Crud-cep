@@ -1,59 +1,57 @@
-# CrudCep
+readme_md = """
+# Projeto Angular 19 - Cadastro de Usuários com Busca ViaCEP
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
+Este projeto é um exemplo de cadastro de usuários com formulário reativo, integração com API ViaCEP para busca automática de endereço pelo CEP, máscaras de campos e lista de usuários.
 
-## Development server
+---
 
-To start a local development server, run:
+## Pré-requisitos
 
-```bash
-ng serve
-```
+- Node.js (versão 18 ou superior recomendada)  
+- npm (vem com o Node.js)  
+- Angular CLI (recomendado, mas opcional para este projeto standalone)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## Como rodar o projeto
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1. **Clone o repositório**
 
-```bash
-ng generate component component-name
-```
+git clone https://github.com/seu-usuario/seu-projeto.git
+cd seu-projeto
+## 
+2. **Clone o repositório**
+- npm install
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+##
+3 . **Rodar a aplicação localmente**
+- npm start 
 
-```bash
-ng generate --help
-```
+Ou (caso não tenha npm start configurado, rode:)
 
-## Building
+- npx ng serve
+## 
+4 Acesse no navegador
+ - Abra http://localhost:4200
 
-To build the project run:
+## Rodar testes unitários
+Para rodar os testes unitários (incluindo o teste do serviço ViaCepService):
+- npm test ou npx ng test
 
-```bash
-ng build
-```
+## Pacotes principais usados
+- Angular 19
+- @angular/forms (Reactive Forms)
+- @angular/router
+- ngx-mask (para máscaras em campos de formulário)
+- HttpClientModule (para chamadas HTTP na API ViaCEP)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Estrutura
+- src/app/components/cadastro - Componente cadastro de usuário com validações
+- src/app/components/lista-usuarios - Componente para exibir lista de usuários
+- src/app/services/via-cep.service.ts - Serviço para consumir API ViaCEP
+- src/app/services/usuario.service.ts - Serviço para gerenciar usuários (em memória)
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Observações
+- O projeto usa componentes standalone do Angular 19.
+- A lista de usuários é mantida em memória (sem backend persistente).
+- A API ViaCEP é usada para buscar endereço via CEP.
