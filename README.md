@@ -17,7 +17,7 @@ Este projeto é um exemplo de cadastro de usuários com formulário reativo, int
 
 1. **Clone o repositório**
 
-git clone https://github.com/seu-usuario/seu-projeto.git
+- git clone https://github.com/ClaudivanAlves/Crud-cep.git
 cd seu-projeto
 ## 
 2. **Clone o repositório**
@@ -46,10 +46,12 @@ Para rodar os testes unitários (incluindo o teste do serviço ViaCepService):
 - HttpClientModule (para chamadas HTTP na API ViaCEP)
 
 ## Estrutura
-- src/app/components/cadastro - Componente cadastro de usuário com validações
-- src/app/components/lista-usuarios - Componente para exibir lista de usuários
+- src/app/models/usuario.model.ts - A interface representa os dados de um usuário no sistema.
+- src/app/pages/cadastro - Componente cadastro de usuário com validações 
+- src/app/pages/lista/ - Componente para listar alguns dados dos usuários cadastrados
 - src/app/services/via-cep.service.ts - Serviço para consumir API ViaCEP
 - src/app/services/usuario.service.ts - Serviço para gerenciar usuários (em memória)
+- src/app/services/via-cep.service-spec.ts - Serviço para testar a api
 
 ## Observações
 - O projeto usa componentes standalone do Angular 19.
