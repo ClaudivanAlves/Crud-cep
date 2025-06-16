@@ -1,11 +1,24 @@
 import { Component } from '@angular/core';
+import { CommonModule, AsyncPipe, Location } from '@angular/common';
+import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
-  selector: 'app-lista',
-  imports: [],
+  standalone: true,
+  selector: 'app-lista-usuarios',
+  imports: [CommonModule, AsyncPipe],
   templateUrl: './lista.component.html',
-  styleUrl: './lista.component.scss'
 })
-export class ListaComponent {
+export class ListaUsuariosComponent {
+  constructor(
+    private usuarioService: UsuarioService,
+    private location: Location
+  ) {}
 
+  get usuarios$() {
+    return this.usuarioService.usuarios$;
+  }
+
+  voltar() {
+    this.location.back();
+  }
 }

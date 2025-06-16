@@ -1,1 +1,15 @@
-<p>lista works!</p>
+<h1>Usuários Cadastrados</h1>
+
+<ul *ngIf="usuarios$ | async as usuarios" class="lista-usuarios">
+  <li *ngFor="let u of usuarios" class="usuario-item">
+    <div class="usuario-info">
+      <strong class="nome">{{ u.nome }}</strong>
+      <span class="email">{{ u.email }}</span>
+    </div>
+    <div class="usuario-endereco">
+      {{ u.rua }}, {{ u.bairro }} - {{ u.cidade }}/{{ u.estado }}
+    </div>
+  </li>
+</ul>
+
+<button class="btn-voltar" (click)="voltar()">Voltar</button>
